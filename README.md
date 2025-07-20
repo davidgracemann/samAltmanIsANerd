@@ -1,4 +1,6 @@
 # Crypto-LLM-Engineering-Resources
+---
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-David%20Grace-blue?logo=linkedin)](https://www.linkedin.com/in/david-grace/)
 
 Welcome to this GitHub repository! This serves as a comprehensive link tree and resource hub for your personal journey in crypto and LLM engineering. It's structured around the tools, languages, and frameworks from your provided list, grouped into logical categories for easier navigation. Each section includes curated, high-quality resources (tutorials, documentation, courses, and more) selected from reliable sources to help you get started and dive deep.
 
