@@ -1,3 +1,10 @@
+# DYI Plan to Beat Boomer Elon 
+
+## 1. Become AI Top 0.01%  
+## 2. Reach Codeforces Candidate Master ASAP\
+## 3. Dont Die Before Him 
+
+
 # 🎮 LLM-AI-Engineering-Quest
 ### **Level Up to Elite AI Engineer Status!** 🚀
 
