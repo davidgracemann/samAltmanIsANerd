@@ -1,80 +1,149 @@
-# Deep AI Fundmentals 
+# Applied & Foundational AI ( Resource Hub )
+<img width="1000" height="500" alt="image" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmk5OWYzZmJsZWNsdmE5NGNleXVhY281b2JjYmNyd2FjcjIwa2czOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FqpCVcIHXJuuCfNa4b/giphy.gif"/>
+
+> Personal AI infrastructure, tooling, and research notes — **Gracemann365**
 
 ---
-## Chief AI 90-Day Technical Breadth Curriculum
-**Strategic AI Leadership Foundation**  
-*Timeline: 45-50 hours over 90 days (15-17 hours/month)*
 
-## Month 1: Core AI Foundations (15-17 hours)
+## 1. Hardware
 
-| **Week** | **Focus Area** | **Key Topics** | **Chief AI Application** |
-|----------|----------------|----------------|-------------------------|
-| **Week 1** | ML Fundamentals | • Supervised vs unsupervised learning<br>• Model evaluation and validation<br>• Bias-variance tradeoff | • Select algorithms for business problems<br>• Design validation frameworks |
-| **Week 2** | Deep Learning Basics | • Neural networks and backpropagation<br>• CNN for vision, RNN for sequences<br>• Transfer learning concepts | • Evaluate AI vendor capabilities<br>• Architect enterprise solutions |
-| **Week 3** | Math Essentials | • Linear algebra for AI (matrices, SVD)<br>• Statistics for A/B testing<br>• Probability for uncertainty | • Make data-driven investment decisions<br>• Communicate technical trade-offs |
-| **Week 4** | Model Training | • Loss functions and optimization<br>• Regularization techniques<br>• Training best practices | • Set realistic project timelines<br>• Guide MLOps strategy |
+### 1.1 Workstation
 
-## Month 2: Applied AI Domains (15-17 hours)
+| Component | Specification | Hard Limit |
+| :--- | :--- | :--- |
+| **Device** | Lenovo IdeaPad Gaming 3 (15IMH05) `81Y4` | — |
+| **OS** | Windows 11 Home 25H2 — Build `26200.7840` | — |
+| **CPU** | Intel Core i7-10750H — 6C/12T @ 2.60–5.00 GHz | CPU inference: ~5–8 tok/s |
+| **RAM** | 8 GB DDR4-2933 (7.87 GB usable) | ~1.69 GB typically free at idle |
+| **GPU** | NVIDIA GeForce GTX 1650 — **4 GB VRAM** | Max model size: ~3.5 GB loaded |
+| **iGPU** | Intel UHD Graphics (1 GB shared RAM) | Handles display only |
+| **Storage** | SATA SSD (page file: 8.50 GB) | Overflow to disk = severe slowdown |
+| **Network** | Intel Wi-Fi 6 AX201 160MHz | — |
+| **Upgrade Path** | 2× SODIMM — supports up to 128 GB RAM | Priority upgrade: 32 GB |
 
-| **Week** | **Focus Area** | **Key Topics** | **Chief AI Application** |
-|----------|----------------|----------------|-------------------------|
-| **Week 5** | Computer Vision | • Object detection (YOLO basics)<br>• Image classification<br>• Pre-trained model usage | • Lead vision AI product strategy<br>• Evaluate CV vendors |
-| **Week 6** | NLP & Language | • Text preprocessing fundamentals<br>• Word embeddings overview<br>• Language model basics | • Shape conversational AI strategy<br>• Guide document automation |
-| **Week 7** | Generative AI | • LLM training overview<br>• Diffusion model concepts<br>• Scaling laws and compute | • Develop generative AI roadmaps<br>• Evaluate foundation model partnerships |
-| **Week 8** | AI Operations | • Model deployment strategies<br>• Monitoring and maintenance<br>• Infrastructure requirements | • Optimize compute investments<br>• Design scalable AI systems |
+### 1.2 Operational Constraints
 
-## Month 3: Strategic AI Leadership (15-17 hours)
-
-| **Week** | **Focus Area** | **Key Topics** | **Chief AI Application** |
-|----------|----------------|----------------|-------------------------|
-| **Week 9** | AI Ethics & Governance | • Bias detection essentials<br>• Fairness metrics overview<br>• Privacy-preserving techniques | • Establish AI governance frameworks<br>• Navigate compliance requirements |
-| **Week 10** | Evaluation & Research | • Model interpretability basics<br>• Benchmarking methodologies<br>• Key research paper analysis | • Guide R&D investments<br>• Evaluate breakthrough technologies |
-| **Week 11** | Industry Applications | • AI in specific verticals<br>• ROI measurement frameworks<br>• Competitive analysis methods | • Identify market opportunities<br>• Drive AI transformation strategy |
-| **Week 12** | Integration & Synthesis | • End-to-end AI project lifecycle<br>• Team structure and hiring<br>• Technology roadmap planning | • Lead organizational AI adoption<br>• Build high-performing AI teams |
-
-**Focus: Strategic breadth over technical depth - sufficient understanding to lead AI initiatives and make informed decisions**
-
-
+| Constraint | Detail |
+| :--- | :--- |
+| **VRAM ceiling** | 4 GB — only models ≤3.5 GB load fully on GPU |
+| **RAM at idle** | Windows 11 consumes ~6.1 GB — leaves ~1.69 GB free |
+| **One model at a time** | Loading a second model auto-evicts the first (Ollama default) |
+| **No Chrome rule** | Browser open = 1–2 GB RAM consumed — close during inference |
+| **Ollama split** | 7B models run 13% CPU / 87% GPU — causes context overflow into RAM |
+| **GPU inference speed** | 3B models: ~30 tok/s · 1.5B models: ~40–50 tok/s |
 
 ---
-### Unified Model Access Matrix (Sorted by Agentic Coding Performance)
 
-| Model | Access Through (Provider + Limits) | Key Strengths | Key Weaknesses |
-|-------|-------------------------------------|---------------|----------------|
-| **Claude Opus 4** | **VS Code Copilot Pro**: Premium requests only (10× cost)<br>**Perplexity Pro**: 300 Pro searches/day | Top MMLU performance, chain-of-thought visible, complex debugging, architecture critiques | Extremely expensive (10× cost multiplier), premium-only access |
-| **Grok 4 Heavy** | **SuperGrok Heavy**: $300/month, 4000 messages/day, 360 Deep Search minutes | Multi-agent debate, 44.4% HLE benchmark, 79.4% LiveCodeBench, native tool use | Extremely expensive, limited availability, unproven at enterprise scale |
-| **o3** | **VS Code Copilot Pro**: 300 monthly premium requests (1× cost) | Reinforcement-trained deep reviewer, parallel tool calls, architecture critiques | Higher cost multiplier, limited to premium requests |
-| **Gemini 2.5 Pro** | **Gemini AI Pro**: $20/month, 1000 AI credits<br>**Gemini AI Ultra**: $250/month, 12500 credits<br>**Kilocode API**: API rate limits<br>**Gemini CLI**: Reduced performance | Agent-mode tasks via MCP tools, 1M context, Deep Think option, massive codebase analysis | Inconsistent performance, API reliability issues, thinking budget limitations |
-| **Claude Sonnet 4** | **VS Code Copilot Pro**: 300 monthly premium requests (1× cost)<br>**Perplexity Pro**: 300 Pro searches/day | Vision input, safer refusals, tech specs, RFC drafts, 200k context | Limited real-time data access, slower inference than Flash models |
-| **GPT-4.1** | **VS Code Copilot Pro**: Default model (0× cost), unlimited autocompletions | Now default in Visual Studio, faster code suggestions, higher pass@1 on LeetCode than 4o | Less multimodal capabilities, older architecture |
-| **Grok 4** | **SuperGrok**: $30/month, 1000 messages/day, 120 Deep Search minutes | Native tool use, real-time web & X search, 25.4% HLE benchmark | Expensive, limited Deep Search quota, newer model |
-| **o4-mini** | **VS Code Copilot Pro**: 300 monthly premium requests (0.33× cost) | Vision support, 200k tokens, cross-file edits, documentation tasks | Preview model, limited availability, reduced capabilities |
-| **GPT-4o** | **VS Code Copilot Pro**: Multimodal vision+voice in chat (0× cost)<br>**Perplexity Pro**: 300 Pro searches/day | Multimodal capabilities, fast inference, 74.2% LiveCodeBench | Less nuanced than Claude for complex reasoning, 24.9% HLE |
-| **Claude Sonnet 3.7 Thinking** | **VS Code Copilot Pro**: Premium requests (1.25× cost) | "Thinking" toggle shows internal steps, educational explanations | Higher cost than base Sonnet, thinking overhead |
-| **Gemini 2.5 Flash** | **Gemini AI Pro**: 1000 AI credits<br>**Gemini PRO Suite**: Variable limits | Faster than 2.0 Flash, native audio, voice-driven snippets, 1M context | Reduced capability compared to Pro models, limited reasoning depth |
-| **o3-mini** | **VS Code Copilot Pro**: Free tier preview, 50 messages/12h (0.33× cost) | Low-latency snippets, ideal for inline completions | Free tier limitations, reduced capabilities, message quotas |
-| **Grok 3 Reasoning** | **X Premium+**: $40/month, 1000 messages/day | Chain-of-thought "Think" mode, 93 AIME '24, 1M context | Limited reasoning depth compared to heavy models |
-| **DeepSeek R1** | **Perplexity Pro**: 300 Pro searches/day | Strong mathematical reasoning, cost-effective inference, 8× cheaper than 4o | Limited general knowledge, newer model with less validation |
-| **Gemini Pro** | **Perplexity Pro**: 300 Pro searches/day<br>**VS Code Copilot Pro**: 300 monthly premium requests | Reliable performance, good coding assistance | Outpaced by newer model versions, lower context window |
-| **Grok 3 Mini** | **X Premium+**: $40/month, 1000 messages/day | Low-latency chat, live-data replies, 1M context | Basic reasoning capabilities, limited for complex coding |
-| **Sonar Pro** | **Perplexity Pro**: 300 Pro searches/day, custom-source JSON API | Programmable source filters, 1200 t/s decoding, web-connected search | Limited reasoning capabilities, search-focused only |
+## 2. Pro Chats 
 
-### Infrastructure Performance Matrix
+### 2.1 Google AI Pro
 
-| Metric | Score | Technical Analysis |
-|--------|-------|-------------------|
-| **Model Diversity** | 9.0/10 | Multi-family transformer ensemble, complete capability coverage |
-| **Inference Throughput** | 8.5/10 | 1200 t/s peak, parallel tool calls, multi-agent debate architecture |
-| **Context Scalability** | 8.8/10 | 1M+ token windows, 200k+ baseline, attention mechanisms |
-| **Cost-Performance Ratio** | 7.2/10 | $400+/month burn rate, 10× multipliers, optimal utility distribution |
-| **Agentic Capability** | 9.3/10 | MCP tool integration, reinforcement-trained reviewers, native tool use |
-| **Real-time Intelligence** | 9.1/10 | Live web scraping, 57-source search fusion, dynamic knowledge graphs |
-| **Redundancy Factor** | 8.4/10 | Multi-provider failover, fallback API chains, distributed topology |
-| **Overall Index** | **8.7/10** | **Enterprise-grade Stack Due to Single User Focus** |
+| Item | Detail |
+| :--- | :--- |
+| **Active Model** | Gemini 3.1 Pro |
+| **Context Window** | 1,000,000 tokens |
+| **Multimodal Inputs** | Text · Audio (8.4h) · Images (900/prompt) · Video (45min) · PDF · Code Repos |
+| **Thinking** | Automatic Chain-of-Thought (task-adaptive) |
+| **Monthly Credits** | 1,000 AI credits · 100 videos |
+| **API Access** | Google AI Studio + Gemini CLI |
+| **Storage** | 2 TB Google One |
+| **Key Tools** | NotebookLM (1,500 pages) · Whisk Animate · Flow · Workspace Integration |
+
+### 2.2 Perplexity Pro (Airtel Bundle)
+
+| Item | Detail |
+| :--- | :--- |
+| **Validity** | 12 months — active until **June 2026** |
+| **Daily Pro Searches** | 300+ (multi-step reasoning) |
+| **Search Modes** | Web · Academic · Writing · Wolfram\|Alpha · YouTube · Reddit |
+| **API Credits** | $5/month |
+| **File Analysis** | 100 files/week (PDF, CSV, Code, Images) |
+| **Image Generation** | Unlimited — DALL-E 3 · Flux.1 · Playground |
+
+#### Models Available via Perplexity Pro (February 2026)
+
+| Model | Type |
+| :--- | :--- |
+| Sonar | Perplexity in-house (search-native) |
+| GPT-5.2 | OpenAI |
+| Claude 4.6 Sonnet | Anthropic (Thinking + Non-Thinking) |
+| Gemini 3.1 Pro | Google |
+| Grok 4.1 | xAI |
+| o3 / o3-pro | OpenAI |
+
+---
+
+## 3. CLI Ecosystem
+
+### 3.1 Local Stack (Offline-Capable · GTX 1650 · Zero Cloud)
+
+> All models run via **Ollama v0.17.x**. One model loaded at a time. GPU-accelerated.
+
+| Model | Size | VRAM Used | Role | Invoke |
+| :--- | :--- | :--- | :--- | :--- |
+| `qwen2.5-coder:3b` | 1.9 GB | ~1.9 GB GPU | **Programmer** — Python, scripting, debugging | `ollama run qwen2.5-coder:3b` |
+| `deepseek-r1:1.5b` | 1.1 GB | ~1.1 GB GPU | **Mathematician** — GRE Quant, logic, CoT reasoning | `ollama run deepseek-r1:1.5b` |
+| `phi3:mini` | 2.2 GB | ~2.2 GB GPU | **Fallback general** — fast summarization | `ollama run phi3:mini` |
+| `gemma3:4b` | 2.5 GB | ~2.5 GB GPU | **Daily driver** — 128K context, 140+ languages, German | `ollama run gemma3:4b` |
+| `moondream2` | 1.7 GB | ~1.7 GB GPU | **Vision** — screenshots, diagrams, handwritten text | `ollama run moondream2` |
+| `qwen2.5:1.5b` | 0.9 GB | ~0.9 GB GPU | **Ultra-fast utility** — quick lookups, background agent | `ollama run qwen2.5:1.5b` |
+| `nomic-embed-text` | 0.27 GB | ~0.27 GB GPU | **Embeddings only** — powers memory vault indexing | auto via `basic-memory` |
+
+#### Memory Layer
+
+| Tool | Role | Command |
+| :--- | :--- | :--- |
+| `basic-memory` | MCP server — indexes `EpiMemory/` vault, serves context to all LLM tools | `basic-memory mcp` |
+| `EpiMemory/` vault | Persistent Markdown memory store — profile, sessions, learned facts, hallucination log | `C:\Users\Gracemann365\EpiMemory\` |
+| `ask.py` | Memory-injected Ollama wrapper — enriches every prompt with vault context before inference | `python ask.py "query" --model phi3:mini` |
+
+### 3.2 Cloud Stack (Internet-Required · API-Routed via LiteLLM)
+
+> LiteLLM runs locally as a proxy (`localhost:8082`), translating Anthropic/OpenAI formats to any cloud model API.
+
+| Model | Provider | Access Method | Best Used For |
+| :--- | :--- | :--- | :--- |
+| **Kimi K2.5** | Moonshot AI | LiteLLM → `moonshot/kimi-k2.5` | Heavy multimodal + 1T param agentic tasks |
+| **Kimi K2 Thinking** | Moonshot AI | LiteLLM → `moonshot/kimi-k2-thinking` | Frontier-level chain-of-thought math |
+| **Gemini 3.1 Pro** | Google | Gemini CLI (native) + LiteLLM | 1M context, document analysis, multimodal |
+
+#### Gemini CLI
+
+| Item | Detail |
+| :--- | :--- |
+| **Auth** | API Key via `api.google.dev` (Google AI Studio) |
+| **Free Tier** | Gemini 3.1 Pro — 1,000 RPD · 15 RPM |
+| **Agentic Features** | ReAct loop · Shell execution · File system read/write |
+| **MCP Config** | `~/.gemini/settings.json` → points to `basic-memory mcp` server |
+
+### 3.3 Agentic Coding Tools
+
+| Tool | Backend | Memory Connected | Use Case |
+| :--- | :--- | :--- | :--- |
+| **Claude Code** | Kimi K2.5 via LiteLLM proxy | Via MCP → `basic-memory` | Primary agentic coding sessions |
+| **Codex CLI** | GPT-5.2 / local fallback | `CODEX_SYSTEM_PROMPT` env var | Repo-level code modification |
+| **Gemini CLI** | Gemini 3.1 Pro | Native MCP → `basic-memory` | Long-context analysis + shell tasks |
+| **Ollama + ask.py** | Local GPU models | Direct vault injection | Offline coding + reasoning sessions |
+
+---
+
+## 4. Operational Decision Tree
+
+```
+Query received
+     │
+     ├── Offline / private?
+     │        ├── Code task      → qwen2.5-coder:3b
+     │        ├── Math / logic   → deepseek-r1:1.5b
+     │        ├── Image / vision → moondream2
+     │        ├── German / long  → gemma3:4b
+     │        └── Quick lookup   → qwen2.5:1.5b
+     │
+     └── Online / heavy task?
+              ├── Frontier reasoning  → Kimi K2 Thinking (LiteLLM)
+              ├── Multimodal agentic  → Kimi K2.5 (LiteLLM)
+              └── 1M context document → Gemini 3.1 Pro (Gemini CLI)
+```
 
 
-### Upcoming Changes
-
-- **August 2025**: Transitioning from VS Code Copilot to **Claude Code** for improved agentic development workflows
-- **Claude Code** will provide direct terminal integration for delegating coding tasks to Claude
-- Grok 3 free access may end when "servers melt" - pricing structure may change
+*Last updated: February 2026 · Hardware: Gracemann365 · Maintainer: David Grace*
