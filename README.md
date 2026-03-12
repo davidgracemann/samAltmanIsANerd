@@ -5,32 +5,35 @@
 
 ---
 
-## 1. Hardware
+## 1. Distributed Computing Ecosytem
 
-### 1.1 Workstation
+### 1.1 alphaNode (Primary Research Station)
 
-| Component | Specification | Hard Limit |
-| :--- | :--- | :--- |
-| **Device** | Lenovo IdeaPad Gaming 3 (15IMH05) `81Y4` | — |
-| **OS** | Windows 11 Home 25H2 — Build `26200.7840` | — |
-| **CPU** | Intel Core i7-10750H — 6C/12T @ 2.60–5.00 GHz | CPU inference: ~5–8 tok/s |
-| **RAM** | 8 GB DDR4-2933 (7.87 GB usable) | ~1.69 GB typically free at idle |
-| **GPU** | NVIDIA GeForce GTX 1650 — **4 GB VRAM** | Max model size: ~3.5 GB loaded |
-| **iGPU** | Intel UHD Graphics (1 GB shared RAM) | Handles display only |
-| **Storage** | SATA SSD (page file: 8.50 GB) | Overflow to disk = severe slowdown |
-| **Network** | Intel Wi-Fi 6 AX201 160MHz | — |
-| **Upgrade Path** | 2× SODIMM — supports up to 128 GB RAM | Priority upgrade: 32 GB |
+**Role:** Master node for heavy model orchestration, AI research, and high-performance computing.
 
-### 1.2 Operational Constraints
+| Component | Specification | Operational Notes |
+| --- | --- | --- |
+| **Device** | Lenovo Legion Pro 5 (83NN003CIN) | System optimized for high-concurrency research. |
+| **OS** | **CachyOS** (Linux Kernel - Optimized) | Low-latency kernel for real-time task scheduling. |
+| **CPU** | Intel Core i9-14900HX (24C / 32T) | Base: 2.2 GHz / Boost: 5.8 GHz. |
+| **RAM** | 32 GB DDR5-5600 | High-bandwidth memory for local RAG and agent logic. |
+| **GPU** | NVIDIA RTX 5070 (8 GB GDDR7 VRAM) | Max model size: ~7.5 GB fully offloaded to GPU. |
+| **Storage** | 1 TB NVMe Gen4 SSD | High-speed I/O for large dataset processing. |
+| **Network** | Realtek 8922AE WiFi 7 | Primary link for high-speed node communication. |
 
-| Constraint | Detail |
-| :--- | :--- |
-| **VRAM ceiling** | 4 GB — only models ≤3.5 GB load fully on GPU |
-| **RAM at idle** | Windows 11 consumes ~6.1 GB — leaves ~1.69 GB free |
-| **One model at a time** | Loading a second model auto-evicts the first (Ollama default) |
-| **No Chrome rule** | Browser open = 1–2 GB RAM consumed — close during inference |
-| **Ollama split** | 7B models run 13% CPU / 87% GPU — causes context overflow into RAM |
-| **GPU inference speed** | 3B models: ~30 tok/s · 1.5B models: ~40–50 tok/s |
+### 1.2 betaNode (Distributed Support Node)
+
+**Role:** Repurposed legacy workstation for headless background tasks and task mirroring.
+
+| Component | Specification | Operational Notes |
+| --- | --- | --- |
+| **Device** | Lenovo IdeaPad Gaming 3 (15IMH05) | Repurposed for secondary compute tasks. |
+| **OS** | **CachyOS** (Linux Kernel - Optimized) | Unified environment for seamless SSH orchestration. |
+| **CPU** | Intel Core i7-10750H (6C / 12T) | Base: 2.6 GHz / Boost: 5.0 GHz. |
+| **RAM** | 8 GB DDR4-2933 | **~6 GB free at idle** (CachyOS optimization). |
+| **GPU** | NVIDIA GTX 1650 (4 GB GDDR6 VRAM) | Limited to small-quantization models (≤3.5 GB). |
+| **Storage** | SATA SSD | Secondary storage for logs and build artifacts. |
+| **Network** | Intel Wi-Fi 6 AX201 | Linked via 50 Mbps Spectra WLAN. |
 
 ---
 
