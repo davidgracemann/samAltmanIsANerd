@@ -1,8 +1,7 @@
 # alphaNode // Development Stack 
 > "Engineering systems that make failure mathematically expensive, bounded, and observable."
 
-A high-performance, **x86-64-v4 optimized** development environment on CachyOS. Engineered for Systems Research (TU Ilmenau) and Agentic Mesh Architectures.
-
+A high-performance, **x86-64-v4 optimized** development environment on CachyOS.
 ---
 
 ## [ 01 ] Version Control & Orchestration
@@ -79,7 +78,7 @@ paru -S visual-studio-code-bin
 
 ## [ 06 ] Academic & Theoretical Math
 
-Minimal LaTeX distribution for TU Ilmenau research deliverables and FAiR documentation.
+Minimal LaTeX distribution for  research deliverables and FAiR documentation.
 
 * **Engine:** `texlive-basic` + `texlive-latexextra`
 
@@ -87,15 +86,6 @@ Minimal LaTeX distribution for TU Ilmenau research deliverables and FAiR documen
 sudo pacman -S texlive-basic texlive-latexextra
 
 ```
-
----
-
-## [ Hardware Sync ]
-
-* **Node:** Legion Pro 5 (i9-14900HX | 32 Threads)
-* **GPU:** RTX 5070 (Blackwell Architecture)
-* **Architecture:** x86-64-v4 (AVX-512 enabled)
-* **OS:** CachyOS (Linux 6.19+)
 
 ---
 
