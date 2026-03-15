@@ -37,116 +37,48 @@
 
 ---
 
-## 2. Pro Chats 
+## **Full Mesh Agentic Grid**
 
-### 2.1 Google AI Pro
 
-| Item | Detail |
-| :--- | :--- |
-| **Active Model** | Gemini 3.1 Pro |
-| **Context Window** | 1,000,000 tokens |
-| **Multimodal Inputs** | Text · Audio (8.4h) · Images (900/prompt) · Video (45min) · PDF · Code Repos |
-| **Thinking** | Automatic Chain-of-Thought (task-adaptive) |
-| **Monthly Credits** | 1,000 AI credits · 100 videos |
-| **API Access** | Google AI Studio + Gemini CLI |
-| **Storage** | 2 TB Google One |
-| **Key Tools** | NotebookLM (1,500 pages) · Whisk Animate · Flow · Workspace Integration |
 
-### 2.2 Perplexity Pro (Airtel Bundle)
-
-| Item | Detail |
-| :--- | :--- |
-| **Validity** | 12 months — active until **June 2026** |
-| **Daily Pro Searches** | 300+ (multi-step reasoning) |
-| **Search Modes** | Web · Academic · Writing · Wolfram\|Alpha · YouTube · Reddit |
-| **API Credits** | $5/month |
-| **File Analysis** | 100 files/week (PDF, CSV, Code, Images) |
-| **Image Generation** | Unlimited — DALL-E 3 · Flux.1 · Playground |
-
-#### Models Available via Perplexity Pro (February 2026)
-
-| Model | Type |
-| :--- | :--- |
-| Sonar | Perplexity in-house (search-native) |
-| GPT-5.2 | OpenAI |
-| Claude 4.6 Sonnet | Anthropic (Thinking + Non-Thinking) |
-| Gemini 3.1 Pro | Google |
-| Grok 4.1 | xAI |
-| o3 / o3-pro | OpenAI |
+| Execution Tool ↓ / API → | 1. Claude API (Pro) | 2. OpenRouter ($16 Credit) | 3. Local (Ollama/RTX 5070) |
+| --- | --- | --- | --- |
+| **A. Claude Code** | **Native:** Gold standard autonomous engineering. | **CCR Mode:** Claude CLI powered by DeepSeek/Qwen. | **L-CCR Mode:** Claude CLI on local Llama 4/Qwen 3. |
+| **B. OpenCode / Aider** | **Pro Proxy:** Anthropic reasoning with TUI flexibility. | **Power User:** Optimized dual-agent credit burn. | **Sovereign:** 100% private, zero-latency execution. |
+| **C. Agentic VS Code** | **Roo-Claude:** Seamless IDE integration for high-IQ refactors. | **Roo-OR:** Cost-effective "God Mode" within the IDE. | **Roo-Local:** Free, infinite autocomplete and unit testing. |
+| **D. proChats** | **Research Tier:** High-level architectural and math verification. | **Discovery Tier:** Testing new SOTA models for specific tasks. | **Offline Tier:** Deep thinking without data leaving the node. |
 
 ---
 
-## 3. CLI Ecosystem
+### **Deployment & Routing (The Connectors)**
 
-### 3.1 Local Stack (Offline-Capable · GTX 1650 · Zero Cloud)
 
-> All models run via **Ollama v0.17.x**. One model loaded at a time. GPU-accelerated.
+**1. Claude Code (The CCR Bridge)**
+Bypasses Anthropic's lock-in to utilize your OpenRouter credits immediately.
 
-| Model | Size | VRAM Used | Role | Invoke |
-| :--- | :--- | :--- | :--- | :--- |
-| `qwen2.5-coder:3b` | 1.9 GB | ~1.9 GB GPU | **Programmer** — Python, scripting, debugging | `ollama run qwen2.5-coder:3b` |
-| `deepseek-r1:1.5b` | 1.1 GB | ~1.1 GB GPU | **Mathematician** — GRE Quant, logic, CoT reasoning | `ollama run deepseek-r1:1.5b` |
-| `phi3:mini` | 2.2 GB | ~2.2 GB GPU | **Fallback general** — fast summarization | `ollama run phi3:mini` |
-| `gemma3:4b` | 2.5 GB | ~2.5 GB GPU | **Daily driver** — 128K context, 140+ languages, German | `ollama run gemma3:4b` |
-| `moondream2` | 1.7 GB | ~1.7 GB GPU | **Vision** — screenshots, diagrams, handwritten text | `ollama run moondream2` |
-| `qwen2.5:1.5b` | 0.9 GB | ~0.9 GB GPU | **Ultra-fast utility** — quick lookups, background agent | `ollama run qwen2.5:1.5b` |
-| `nomic-embed-text` | 0.27 GB | ~0.27 GB GPU | **Embeddings only** — powers memory vault indexing | auto via `basic-memory` |
+* **Install:** `npm install -g @musistudio/claude-code-router`
+* **Execute:** `ccr code --model openrouter/deepseek-v3`
 
-#### Memory Layer
+**2. OpenCode (Native API Agnostic)**
+Natively speaks multiple API languages; handles the matrix switching internally.
 
-| Tool | Role | Command |
-| :--- | :--- | :--- |
-| `basic-memory` | MCP server — indexes `EpiMemory/` vault, serves context to all LLM tools | `basic-memory mcp` |
-| `EpiMemory/` vault | Persistent Markdown memory store — profile, sessions, learned facts, hallucination log | `C:\Users\Gracemann365\EpiMemory\` |
-| `ask.py` | Memory-injected Ollama wrapper — enriches every prompt with vault context before inference | `python ask.py "query" --model phi3:mini` |
+* **Install:** `paru -S opencode-bin`
+* **Execute:** Run `opencode /connect` to toggle between OpenRouter and Ollama.
 
-### 3.2 Cloud Stack (Internet-Required · API-Routed via LiteLLM)
+**3. Agentic VS Code (Roo Code / Cline)**
+UI-driven routing within your hardened IDE.
 
-> LiteLLM runs locally as a proxy (`localhost:8082`), translating Anthropic/OpenAI formats to any cloud model API.
-
-| Model | Provider | Access Method | Best Used For |
-| :--- | :--- | :--- | :--- |
-| **Kimi K2.5** | Moonshot AI | LiteLLM → `moonshot/kimi-k2.5` | Heavy multimodal + 1T param agentic tasks |
-| **Kimi K2 Thinking** | Moonshot AI | LiteLLM → `moonshot/kimi-k2-thinking` | Frontier-level chain-of-thought math |
-| **Gemini 3.1 Pro** | Google | Gemini CLI (native) + LiteLLM | 1M context, document analysis, multimodal |
-
-#### Gemini CLI
-
-| Item | Detail |
-| :--- | :--- |
-| **Auth** | API Key via `api.google.dev` (Google AI Studio) |
-| **Free Tier** | Gemini 3.1 Pro — 1,000 RPD · 15 RPM |
-| **Agentic Features** | ReAct loop · Shell execution · File system read/write |
-| **MCP Config** | `~/.gemini/settings.json` → points to `basic-memory mcp` server |
-
-### 3.3 Agentic Coding Tools
-
-| Tool | Backend | Memory Connected | Use Case |
-| :--- | :--- | :--- | :--- |
-| **Claude Code** | Kimi K2.5 via LiteLLM proxy | Via MCP → `basic-memory` | Primary agentic coding sessions |
-| **Codex CLI** | GPT-5.2 / local fallback | `CODEX_SYSTEM_PROMPT` env var | Repo-level code modification |
-| **Gemini CLI** | Gemini 3.1 Pro | Native MCP → `basic-memory` | Long-context analysis + shell tasks |
-| **Ollama + ask.py** | Local GPU models | Direct vault injection | Offline coding + reasoning sessions |
+* **Execute:** Configure endpoints in settings; toggle APIs instantly via the sidebar dropdown.
 
 ---
 
-## 4. Operational Decision Tree
+### **The "Zero-Downtime" Pipeline**
 
-```
-Query received
-     │
-     ├── Offline / private?
-     │        ├── Code task      → qwen2.5-coder:3b
-     │        ├── Math / logic   → deepseek-r1:1.5b
-     │        ├── Image / vision → moondream2
-     │        ├── German / long  → gemma3:4b
-     │        └── Quick lookup   → qwen2.5:1.5b
-     │
-     └── Online / heavy task?
-              ├── Frontier reasoning  → Kimi K2 Thinking (LiteLLM)
-              ├── Multimodal agentic  → Kimi K2.5 (LiteLLM)
-              └── 1M context document → Gemini 3.1 Pro (Gemini CLI)
-```
+1. **Vanguard (proChats):** Research logic and math via Gemini Pro or Perplexity Pro.
+2. **Architect (Claude Code + OpenRouter):** Generate file structure and core logic using high-context external models.
+3. **Refactor (Aider / OpenCode + Local):** Offload repetitive boilerplate and linting to the RTX 5070 for free.
+4. **Polish (Agentic VS Code + Claude Pro):** Execute high-precision architectural reviews once the Anthropic subscription is active.
 
+---
 
-*Last updated: February 2026 · Hardware: Gracemann365 · Maintainer: David Grace*
+*Last updated March 2026 · Hardware: Gracemann365 · Maintainer: David Grace*
