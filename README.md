@@ -67,7 +67,7 @@
 ## agentic-mesh-fallback
 | Tool ↓ / API Pathway → | 1. Anthropic Pro | 2. OpenRouter | 3. Ollama-Cloud | 4. Ollama-Local |
 | :--- | :--- | :--- | :--- | :--- |
-| **A. Claude Code (CLI)** | [Processing] <br> Autonomous engineering. | [Active] <br> DeepSeek R1/V3 pipe. | [Active] <br> Kimi/Minimax tunnel. | [Configuring] <br> Llama 3.1/Qwen local. |
+| **A. Claude Code (CLI)** | [Active] <br> Autonomous engineering. | [Active] <br> DeepSeek R1/V3 pipe. | [Active] <br> Kimi/Minimax tunnel. | [Configuring] <br> Llama 3.1/Qwen local. |
 | **B. OpenCode (TUI)** | [Standby] <br> Reasoning via shim. | [Active] <br> Multi-agent research swarm. | [Active] <br> Rapid prototyping. | [Active] <br> Zero-latency private. |
 | **C. Agentic VS Code** | [Pending Sleep] <br> IDE refactors. | [Pending Sleep] <br> "God Mode" IDE. | [Pending Sleep] <br> Infinite autocompletes. | [Configuring] <br> Local unit testing. |
 | **D. proChats (Web UI)** | [Processing] <br> Architectural math. | [Active] <br> Model discovery & R1. | [Active] <br> Cloud brainstorming. | [Configuring] <br> Desktop inference. |
