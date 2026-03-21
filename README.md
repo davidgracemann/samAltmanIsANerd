@@ -305,6 +305,16 @@ The execution aliases in Section 6 (`cr1`, `cc`, `cl`, etc.) are defined in `.zs
 | **Mesh Topology** | 2-node SSH fabric · 4-tool × 4-provider matrix |
 | **Inference Stack** | Anthropic → OpenRouter → Ollama-Cloud → Ollama-Local |
 
+
+
+## 9. Functional Approach ( quick setup )
+> using a linear - clear context switch strongly discouraged ; hence :
+
+1. ClaudeCode x Anthropic Native
+2. VsCode Roo x Openrouter ( Glm 5 )
+3. OpenCode x Ollama ( cloud x Local x Qwen ; Deepseek ; kimi models )
+Do I need anyting else ?
+
 ---
 
 *Personal research infrastructure · Not affiliated with Anthropic, OpenRouter, or any referenced model provider.*
